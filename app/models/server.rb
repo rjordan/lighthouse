@@ -1,0 +1,19 @@
+class Server < ApplicationRecord
+  ANSIBLE_RESULT_REGEX = /(?<hostname>.*) \| (?<status>.*) => (?<result>.*)/m
+  
+  def call_ansible(action)
+    result = `ansible #{action}`
+    md = ANSIBLE_RESULT_REGEX.match(result)
+    vals = Hash[ md.names.zip( md.captures ) ]
+    vals['result']=JSON.parse(vals['result']) if vals['status']=='SUCCESS'
+  end
+  
+  def facts
+    @facts ||= call_ansible("-m setup #{name}")&.dig('ansible_facts') || {}
+  end
+  
+  def facts_loaded
+    time = facts.dig('ansible_date_time', 'iso8601_micro')
+    time.blank? ? "UNKNOWN" : Time.parse(time)
+  end
+end
