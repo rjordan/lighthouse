@@ -1,0 +1,15 @@
+<h1>Servers</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Hostname</th>
+        </tr>
+    </thead>
+    <tbody>
+            <% @servers.each do |server| %>
+            <tr data-id="<%= server %>">
+            <td><%= link_to server, server_path(server.gsub('.','-')) %></td>
+          </tr>
+            <% end %>
+    </tbody>
+</table>

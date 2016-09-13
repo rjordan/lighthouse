@@ -1,0 +1,7 @@
+// Custom bootstrap variables must be set or imported before bootstrap itself.
+@import "bootstrap";
+
+table {
+  @extend .table;
+  @extend .table-striped;
+}

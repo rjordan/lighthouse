@@ -1,0 +1,20 @@
+PrePush:
+  RSpec:
+    enabled: true
+PreCommit:
+  Brakeman:
+    enabled: false
+    on_warn: fail # Treat all warnings as failures
+  ScssLint:
+    enabled: true
+    on_warn: fail # Treat all warnings as failures
+    required_executable: scss-lint
+  JsonSyntax:
+    enabled: true
+    on_warn: fail # Treat all warnings as failures
+  YamlSyntax:
+    enabled: true
+    on_warn: fail # Treat all warnings as failures
+  RuboCop:
+    enabled: true
+    on_warn: fail # Treat all warnings as failures

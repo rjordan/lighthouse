@@ -1,0 +1,10 @@
+scss_files: "app/assets/stylesheets/**/*.scss"
+
+linters:
+  StringQuotes:
+    enabled: true
+    style: double_quotes
+  Comment:
+    enabled: false
+  PlaceholderInExtend:
+    enabled: false
