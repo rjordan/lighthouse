@@ -19,7 +19,7 @@ class Server < ApplicationRecord
   end
 
   def self.client
-    @client ||= Elasticsearch::Client.new log: true, host: '192.168.0.202:9200'
+    @client ||= Elasticsearch::Client.new log: true, host: ElasticSearchConfig['hosts'].first
   end
 
   def self.find_all

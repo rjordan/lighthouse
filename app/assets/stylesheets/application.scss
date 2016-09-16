@@ -1,7 +1,116 @@
 // Custom bootstrap variables must be set or imported before bootstrap itself.
 @import "bootstrap";
 
+// http://chir.ag/projects/name-that-color
+$boston-blue: #428bca;
+$gallery: #eee;
+$white: #fff;
+$wild-sand: #f5f5f5;
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  border-bottom: 1px solid $gallery;
+  padding-bottom: 10px;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    background-color: $wild-sand;
+    border-right: 1px solid $wild-sand;
+    bottom: 0;
+    display: block;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    padding: 20px;
+    position: fixed;
+    top: 51px;
+    z-index: 1000;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-bottom: 20px;
+  margin-left: -20px;
+  margin-right: -21px; /* 20px padding + 1px border */
+  > li > a {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  background-color: $boston-blue;
+  color: $white;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.placeholder {
+  margin-bottom: 20px;
+
+  img {
+    border-radius: 50%;
+    display: inline-block;
+  }
+}
+
+/* ################### */
+body {
+  padding-top: 50px;
+}
+
 table {
   @extend .table;
   @extend .table-striped;
+}
+
+.navbar {
+  @extend .navbar;
+  @extend .navbar-fixed-top;
+  @extend .navbar-dark;
+  @extend .bg-primary;
 }
