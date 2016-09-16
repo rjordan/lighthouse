@@ -18,4 +18,11 @@ RSpec.describe SwarmsController, type: :controller do
     end
     it { expect(response.status).to eq(200) }
   end
+
+  describe 'the swarm registration endpoint' do
+    before do
+      post :create, params: { swarm: { swarm_nodes: '10.0.0.1' } }
+    end
+    it { expect(response.status).to eq(302) }
+  end
 end
