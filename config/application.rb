@@ -24,3 +24,4 @@ module Lighthouse
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+# @@elastic_config = YAML.load(File.read(Rails.root.join('config', 'elasticsearch.yml')))
