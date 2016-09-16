@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204011553) do
+ActiveRecord::Schema.define(version: 20160916013017) do
 
   create_table "servers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "swarms", force: :cascade do |t|
+    t.string "swarm_id"
+    t.string "name"
+    t.string "swarm_nodes"
+    t.index ["swarm_id"], name: "index_swarms_on_swarm_id", unique: true
   end
 
 end
