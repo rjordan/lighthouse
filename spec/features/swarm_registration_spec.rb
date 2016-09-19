@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-describe 'The swarm registration page', type: :feature do
+describe 'Swarm registration', type: :feature do
   before do
-    visit '/swarms/new'
+    visit '/swarms'
+    click_link 'Register Swarm'
+    fill_in('Name', with: Faker::Lorem.words(2).join(' '))
     fill_in('Swarm Nodes', with: '10.0.0.1')
     click_button('Register Swarm')
   end

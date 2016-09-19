@@ -1,5 +1,6 @@
 // Custom bootstrap variables must be set or imported before bootstrap itself.
 @import "bootstrap";
+@import "font-awesome";
 
 // http://chir.ag/projects/name-that-color
 $boston-blue: #428bca;
@@ -113,4 +114,29 @@ table {
   @extend .navbar-fixed-top;
   @extend .navbar-dark;
   @extend .bg-primary;
+}
+
+.button {
+  @extend .btn;
+  @extend .btn-info;
+}
+
+.danger-button {
+  @extend .btn;
+  @extend .btn-danger;
+}
+
+.list-buttons {
+  @extend .pull-xs-right;
+  @extend .btn-group;
+
+  .button {
+    @extend .button;
+    @extend .btn-sm;
+  }
+
+  .danger-button {
+    @extend .danger-button;
+    @extend .btn-sm;
+  }
 }

@@ -23,6 +23,7 @@ en:
   hello: "Hello world"
   register_swarm: Register Swarm
   swarm_registered: Swarm Registered
+  swarm_unregistered: Swarm Unregistered
   activerecord:
     attributes:
       swarm:

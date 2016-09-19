@@ -1,1 +1,17 @@
-<%= link_to t(:register_swarm), new_swarm_path %>
+<%= link_to t(:register_swarm), new_swarm_path, class: 'button' %>
+
+<h1>Swarms</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Swarm Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @swarms.each do |swarm| %>
+        <tr data-id="<%= swarm.id %>">
+            <td><%= link_to swarm.name, swarm_path(swarm) %> <div class="list-buttons"><%= link_to fa_icon('pencil-square-o'), edit_swarm_path(swarm), class: 'button' %><%= link_to fa_icon('trash-o'), swarm_path(swarm), method: :delete, class: 'danger-button', data: { confirm: 'Are you sure?' } %></div></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
