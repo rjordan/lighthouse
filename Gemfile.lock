@@ -442,6 +442,7 @@ DEPENDENCIES
   rails-assets-tether (>= 1.1.0)!
   rails-footnotes
   rails_best_practices
+  rest-client
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers
@@ -457,7 +458,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 2.3.0p0
+   ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
