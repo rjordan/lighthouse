@@ -356,6 +356,7 @@ GEM
       eventmachine (~> 1.0.0)
       thin (>= 1.5, < 1.7)
     slop (3.6.0)
+    socksify (1.7.0)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -442,11 +443,11 @@ DEPENDENCIES
   rails-assets-tether (>= 1.1.0)!
   rails-footnotes
   rails_best_practices
-  rest-client
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers
   simplecov
+  socksify
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

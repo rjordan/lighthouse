@@ -34,7 +34,7 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'font-awesome-rails'
 gem 'elasticsearch'
 gem 'aws-sdk', '~> 2'
-gem 'rest-client'
+gem 'socksify'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
