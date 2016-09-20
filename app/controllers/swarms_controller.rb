@@ -7,6 +7,10 @@ class SwarmsController < ApplicationController
   def new
   end
 
+  def show
+    @swarm = Swarm.find(params[:id])
+  end
+
   def create
     Swarm.create(swarm_params)
     flash[:notice] = t(:swarm_registered)

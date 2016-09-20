@@ -3,7 +3,7 @@ class Swarm < ApplicationRecord
   # Docker API endpoint docs
   # https://docs.docker.com/engine/reference/api/docker_remote_api_v1.24/#/list-nodes
   attr_reader :manager_token, :worker_token
-  before_save :update_swarm_id!
+  # before_create :update_swarm_id
 
   def swarm_info
     swarm = JSON.parse(connection.get('/swarm').body)
@@ -18,17 +18,20 @@ class Swarm < ApplicationRecord
 
   private
 
+  def swarm_endpoints
+    swarm_nodes.split(',').map { |n| n.include?(':') ? n : "#{n}:2375" }
+  end
+
   def connection
-    @connection ||= Faraday.new(URI.parse("http://#{swarm_nodes}"), {}) do |conn|
+    @connection ||= Faraday.new(URI.parse("http://#{swarm_endpoints.first}"), {}) do |conn|
       conn.request  :url_encoded             # url-encode POST params
       conn.response :logger                  # log requests to STDOUT
       conn.adapter  Faraday.default_adapter  # make requests with Net::HTTP
     end
   end
 
-  def update_swarm_id!
+  def update_swarm_id
     swarm = JSON.parse(connection.get('/swarm').body)
     self.swarm_id = swarm['ID']
-    save!
   end
 end
