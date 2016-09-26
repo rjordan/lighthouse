@@ -145,7 +145,7 @@ form {
 }
 
 .list-buttons {
-  @extend .pull-xs-right;
+  @extend .float-xs-right;
   @extend .btn-group;
 
   .button {

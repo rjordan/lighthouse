@@ -4,8 +4,7 @@ class SwarmsController < ApplicationController
     @swarms = Swarm.all
   end
 
-  def new
-  end
+  def new; end
 
   def show
     @swarm = Swarm.find(params[:id])

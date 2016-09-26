@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -30,10 +30,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap', '~> 4.0.0.alpha4'
-gem 'font-awesome-rails'
-gem 'elasticsearch'
 gem 'aws-sdk', '~> 2'
+gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'elasticsearch'
+gem 'font-awesome-rails'
 gem 'socksify'
 
 source 'https://rails-assets.org' do
@@ -41,38 +41,41 @@ source 'https://rails-assets.org' do
 end
 
 group :development, :test do
+  gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-
-  gem 'awesome_print'
-  gem 'rspec-rails'
-  gem 'teaspoon-jasmine'
-  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'guard-rspec', require: false
   gem 'guard-teaspoon', require: false
-  gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'rails-footnotes'
-  gem 'rails_best_practices'
   gem 'json-schema'
-  gem 'timecop'
-  gem 'memory_test_fix'
   gem 'launchy'
   gem 'mailcatcher', require: false
+  gem 'memory_test_fix'
+  gem 'rails-footnotes'
+  gem 'rails_best_practices'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'metric_fu', require: false
-  gem 'overcommit', require: false
+  gem 'teaspoon-jasmine'
+  gem 'timecop'
+  gem 'webmock'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'metric_fu', require: false
+  gem 'overcommit', require: false
+  gem 'rubocop', require: false
+  gem 'scss-lint', require: false
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

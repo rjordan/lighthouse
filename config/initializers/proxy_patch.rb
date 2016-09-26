@@ -2,5 +2,5 @@
 require 'socksify'
 require 'socksify/http'
 
-# TCPSocket.socks_server = '127.0.0.1'
-# TCPSocket.socks_port = 8001
+TCPSocket.socks_server = '127.0.0.1'
+TCPSocket.socks_port = 8001
