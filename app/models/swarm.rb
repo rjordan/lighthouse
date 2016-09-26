@@ -5,18 +5,26 @@ class Swarm < ApplicationRecord
   attr_reader :manager_token, :worker_token
   # before_create :update_swarm_id
 
+  # Worker icon = cog
+  # Manager icon = sitemap
+  # Leader icon = flag
+
   def swarm_info
     swarm = JSON.parse(connection.get('/swarm').body)
-    throw 'Misconfigured Swarm!' unless swarm['ID'] == swarm_id
+    self.swarm_id = swarm['ID']
     @manager_token = swarm.dig('JoinTokens', 'Manager')
     @worker_token = swarm.dig('JoinTokens', 'Worker')
   end
 
   def node_info
-    JSON.parse(connection.get('/nodes').body)
+    JSON.parse(connection.get('/nodes').body).map { |n| SwarmNode.from_json(n) }
   end
 
   private
+
+  after_find do
+    swarm_info
+  end
 
   def swarm_endpoints
     swarm_nodes.split(',').map { |n| n.include?(':') ? n : "#{n}:2375" }
@@ -31,7 +39,6 @@ class Swarm < ApplicationRecord
   end
 
   def update_swarm_id
-    swarm = JSON.parse(connection.get('/swarm').body)
-    self.swarm_id = swarm['ID']
+    swarm_info
   end
 end

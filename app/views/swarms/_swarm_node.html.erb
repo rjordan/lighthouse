@@ -1,0 +1,22 @@
+<div class="col-lg-6">
+  <div class="card">
+    <h3 class="card-header bg-success"><%= fa_icon swarm_node_icon(swarm_node) %> <%= swarm_node.hostname %></h3>
+    <div class="card-block">
+      <div class="attribute">
+        <label>Availability:</label> <%= swarm_node.availability %>
+      </div>
+      <div class="attribute">
+        <label>Status:</label> <%= swarm_node.status %>
+      </div>
+      <div class="attribute">
+        <label>OS:</label> <%= swarm_node.os %>
+      </div>
+      <div class="attribute">
+        <label>Architecture:</label> <%= swarm_node.architecture %>
+      </div>
+      <div class="attribute">
+        <label>Engine Version:</label> <%= swarm_node.engine_version %>
+      </div>
+    </div>
+  </div>
+</div>

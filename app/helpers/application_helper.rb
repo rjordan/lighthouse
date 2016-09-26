@@ -18,4 +18,15 @@ module ApplicationHelper
     end
     nil
   end
+
+  def swarm_node_icon(swarm)
+    case swarm.role
+    when /leader/i
+      :flag
+    when /manager/i
+      :sitemap
+    else
+      :cog
+    end
+  end
 end

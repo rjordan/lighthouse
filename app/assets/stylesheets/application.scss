@@ -109,6 +109,24 @@ table {
   @extend .table-striped;
 }
 
+form {
+  input {
+    @extend .form-control;
+
+    &[type="submit"] {
+      @extend .btn;
+      @extend .btn-primary;
+    }
+  }
+}
+
+.card {
+
+  label {
+    font-weight: bold;
+  }
+}
+
 .navbar {
   @extend .navbar;
   @extend .navbar-fixed-top;

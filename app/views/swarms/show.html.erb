@@ -1,1 +1,3 @@
-<h1><%= @swarm.name %></h1>
+<h2><%= @swarm.name %></h2>
+
+<%= render partial: 'swarm_node', collection: @swarm.node_info %>
