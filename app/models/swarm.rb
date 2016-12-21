@@ -29,7 +29,11 @@ class Swarm < ApplicationRecord
   #  end
 
   def swarm_endpoints
-    swarm_nodes.split(',').map { |n| n.include?(':') ? n : "#{n}:2375" }
+    if swarm_nodes.include?(',')
+      swarm_nodes.split(',')
+    else
+      Array(swarm_nodes)
+    end.map { |n| n.include?(':') ? n : "#{n}:2375" }
   end
 
   def update_swarm_id

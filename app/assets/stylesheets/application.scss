@@ -132,6 +132,11 @@ form {
   @extend .navbar-fixed-top;
   @extend .navbar-dark;
   @extend .bg-primary;
+
+  .logo {
+    @extend .pull-left;
+    height: 38px;
+  }
 }
 
 .button {
