@@ -25,3 +25,6 @@
 
 # Ignore OSX files
 .DS_Store
+
+# Ignore config
+config/elasticsearch.yml
