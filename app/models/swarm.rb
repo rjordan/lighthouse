@@ -14,8 +14,12 @@ class Swarm < ApplicationRecord
     @worker_token = swarm.dig('JoinTokens', 'Worker')
   end
 
-  def node_info
+  def nodes
     swarm_master.nodes.map { |n| SwarmNode.from_json(n) }
+  end
+
+  def services
+    swarm_master.services
   end
 
   private
@@ -33,7 +37,7 @@ class Swarm < ApplicationRecord
       swarm_nodes.split(',')
     else
       Array(swarm_nodes)
-    end.map { |n| n.include?(':') ? n : "#{n}:2375" }
+    end
   end
 
   def update_swarm_id

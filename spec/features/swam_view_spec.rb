@@ -5,7 +5,8 @@ describe 'Swarm details', type: :feature do
   let!(:swarm) { FactoryGirl.create(:swarm) }
 
   before do
-    allow_any_instance_of(Swarm).to receive(:node_info).and_return({})
+    allow_any_instance_of(Swarm).to receive(:nodes).and_return([])
+    allow_any_instance_of(Swarm).to receive(:services).and_return([])
     visit '/swarms'
     within("tr[data-id='#{swarm.id}']") do
       server_link = page.find('td > a')

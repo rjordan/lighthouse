@@ -1,3 +1,7 @@
-<h2><%= @swarm.name %></h2>
+<h2>Swarm: <%= @swarm.name %></h2>
 
-<%= render partial: 'swarm_node', collection: @swarm.node_info %>
+<h3>Services</h3>
+<%= render partial: 'swarm_service', collection: @swarm.services %>
+
+<h3>Nodes</h3>
+<%= render partial: 'swarm_node', collection: @swarm.nodes %>

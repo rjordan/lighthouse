@@ -1,0 +1,23 @@
+<div class="col-xs-12">
+  <div class="card" data-id="<%= swarm_service.id %>" >
+    <div class="card-header">
+      <h3 ><%= swarm_service.name %></h3>
+      <div>
+        <label>Scale:</label> <%= swarm_service.scale %>
+      </div>
+    </div>
+    <div class="card-block">
+      <div class="attribute">
+        <label>Image:</label> <%= swarm_service.image %>
+      </div>
+      <% if swarm_service.environment.any? %>
+        <h2>Environment:</h2>
+        <% swarm_service.environment.each do |e| %>
+        <div class="attribute">
+          <%= e %>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
